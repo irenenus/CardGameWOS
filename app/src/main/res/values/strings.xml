@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">War of Suits</string>
+
+    <string name="play_button">Play</string>
+    <string name="rules_button">Rules</string>
+
+
+    <string name="rules_title">RULES</string>
+    <string name="rules_body">This game consists on a war of two players that have to lay down their top card and
+        the one with the highest value of the poker card wins the round, putting both cards into their discard pile.\nFirst
+        of all it will be compared the value and then the suit that will be established at the start, randomly by the app.
+        The range of the values will be: 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K and A.\nThe
+        Game finishes when both players have played all of their cards.\nThe
+        winner will be the player with more cards in their discard pile.
+    </string>
+
 </resources>
