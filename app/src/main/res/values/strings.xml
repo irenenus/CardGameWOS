@@ -13,5 +13,14 @@
         Game finishes when both players have played all of their cards.\nThe
         winner will be the player with more cards in their discard pile.
     </string>
+    <string name="name_hint">Name</string>
+    <string name="discarded_cards">%d discarded cards</string>
+    <string name="suits_1">Suits1</string>
+    <string name="suits_2">Suits2</string>
+    <string name="suits_3">Suits3</string>
+    <string name="suits_4">Suits4</string>
+    <string name="tv_player_1">Player1</string>
+    <string name="tv_player_2">Player2</string>
+    <string name="pile">Pile</string>
 
 </resources>

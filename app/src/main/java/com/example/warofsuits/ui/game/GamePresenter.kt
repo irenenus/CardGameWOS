@@ -1,4 +1,9 @@
 package com.example.warofsuits.ui.game
 
-class GamePresenter {
+interface GamePresenter{
+
+    fun onCreateGame()
+
+    fun onRestartGame()
+
 }

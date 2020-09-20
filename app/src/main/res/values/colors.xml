@@ -4,8 +4,12 @@
     <color name="colorPrimaryDark">#50837A</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
+    <color name="green">#174B1A</color>
+    <color name="green_soft">#446644</color>
     <color name="yellow_soft">#ECD396</color>
     <color name="blue_soft">#91E6DC</color>
     <color name="transparent">#0091E6DC</color>
     <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="white_soft">#C4F7F6F6</color>
 </resources>

@@ -10,17 +10,20 @@ import android.widget.PopupWindow
 import android.widget.RelativeLayout
 import com.example.warofsuits.R
 
+
+const val WIDTH = 900
+const val HEIGHT = 1900
+
  fun Activity.onButtonShowPopupWindowClick(view: View) {
+
 
     // inflate the layout of the popup window
     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     val popupView = inflater.inflate(R.layout.popup_rules_window, RelativeLayout(view.context), false)
 
     // create the popup window
-    val width = 900
-    val height = 1900
     val focusable = true
-    val popupWindow = PopupWindow(popupView, width, height, focusable)
+    val popupWindow = PopupWindow(popupView, WIDTH, HEIGHT, focusable)
 
     // show the popup window
     popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)

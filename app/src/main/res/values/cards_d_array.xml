@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array
+        name="integer_array_d">
+        <item>@drawable/d2</item>
+        <item>@drawable/d3</item>
+        <item>@drawable/d4</item>
+        <item>@drawable/d5</item>
+        <item>@drawable/d6</item>
+        <item>@drawable/d7</item>
+        <item>@drawable/d8</item>
+        <item>@drawable/d9</item>
+        <item>@drawable/d10</item>
+        <item>@drawable/dj</item>
+        <item>@drawable/dq</item>
+        <item>@drawable/dk</item>
+        <item>@drawable/da</item>
+    </array>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array
+        name="integer_array_c">
+        <item>@drawable/c2</item>
+        <item>@drawable/c3</item>
+        <item>@drawable/c4</item>
+        <item>@drawable/c5</item>
+        <item>@drawable/c6</item>
+        <item>@drawable/c7</item>
+        <item>@drawable/c8</item>
+        <item>@drawable/c9</item>
+        <item>@drawable/c10</item>
+        <item>@drawable/cj</item>
+        <item>@drawable/cq</item>
+        <item>@drawable/ck</item>
+        <item>@drawable/ca</item>
+    </array>
+</resources>
