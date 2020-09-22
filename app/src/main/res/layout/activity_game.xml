@@ -198,6 +198,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:text="@string/discarded_cards"
+            android:lines="2"
+            android:gravity="center"
             android:layout_margin="12dp"/>
 
         <androidx.cardview.widget.CardView
@@ -251,6 +254,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:text="@string/discarded_cards"
+            android:lines="2"
+            android:gravity="center"
             android:layout_margin="12dp"
             android:rotation="180"/>
 
@@ -269,7 +275,6 @@
             android:layout_width="111dp"
             android:layout_height="173dp"
             android:layout_gravity="start"
-            android:defaultFocusHighlightEnabled="true"
             app:cardCornerRadius="5dp">
 
             <ImageView

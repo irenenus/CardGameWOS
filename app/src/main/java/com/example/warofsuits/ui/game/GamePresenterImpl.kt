@@ -3,6 +3,7 @@ package com.example.warofsuits.ui.game
 import android.content.Context
 import android.util.Log
 import com.example.warofsuits.model.Card
+import com.example.warofsuits.model.Result
 import com.example.warofsuits.model.Suit
 
 
@@ -88,7 +89,13 @@ class GamePresenterImpl(context: Context, private val view: GameView) : GamePres
 
         if(totalDiscard == maxCards){
             Log.d("Finish", "The game has finished")
-            view.onFinishGame(count1, count2)
+            val winner1 = when{
+                count1 > count2 -> true
+                count1 < count2 -> false
+                else -> null
+            }
+
+            view.onFinishGame(Result(count1, count2, round,count1/2, count2/2, winner1))
         }
     }
 

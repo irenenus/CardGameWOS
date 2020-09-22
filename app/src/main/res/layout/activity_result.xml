@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/gradient_weclome_bg"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tvResultWinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="32dp"
+        android:fontFamily="@font/anton"
+        android:textSize="32sp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp">
+
+        <TextView
+            android:id="@+id/tvTextTotalRounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/number_rounds"
+            />
+
+        <TextView
+            android:id="@+id/tvNumTotalRounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp">
+
+        <TextView
+            android:id="@+id/tvTextRounds1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/number_rounds1"
+            />
+
+        <TextView
+            android:id="@+id/tvNumRounds1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp">
+        <TextView
+            android:id="@+id/tvTextRounds2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/number_rounds2"
+            />
+
+        <TextView
+            android:id="@+id/tvNumRounds2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp">
+
+        <TextView
+            android:id="@+id/tvTextDiscard1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/number_discarded_cards1"
+            />
+
+        <TextView
+            android:id="@+id/tvNumDiscard1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginStart="12dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp">
+
+        <TextView
+            android:id="@+id/tvTextDiscard2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/number_discarded_cards2"
+            />
+
+        <TextView
+            android:id="@+id/tvNumDiscard2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginStart="12dp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnReplay"
+        android:layout_width="263dp"
+        android:layout_height="90dp"
+        android:text="@string/replay"
+        android:fontFamily="@font/anton"
+        android:textSize="24sp"
+        android:elevation="30dp"
+        android:background="@drawable/button_shape"
+        android:layout_gravity="center"
+        android:layout_marginTop="63dp" />
+
+
+</LinearLayout>

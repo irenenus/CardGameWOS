@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".ui.game.GameActivity"
             android:theme="@style/GameTheme">
-
+        </activity>
+        <activity android:name=".ui.result.ResultActivity"
+            android:theme="@style/AppTheme">
         </activity>
         <meta-data
             android:name="preloaded_fonts"

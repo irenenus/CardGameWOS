@@ -1,18 +1,25 @@
 package com.example.warofsuits.ui.game
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
+import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.warofsuits.R
+import com.example.warofsuits.model.Result
 import com.example.warofsuits.model.Suit
+import com.example.warofsuits.ui.result.ResultActivity
 import kotlinx.android.synthetic.main.activity_game.*
+
+const val RESULT = "RESULT"
 
 
 class GameActivity: AppCompatActivity(), GameView {
+
 
     lateinit var presenter: GamePresenter
 
@@ -73,7 +80,7 @@ class GameActivity: AppCompatActivity(), GameView {
         }
     }
 
-
+    //show text of the winner and cards a few seconds
     private fun showWinner(message: String, view: View){
         tvWinner1.visibility = View.VISIBLE
         tvWinner2.visibility = View.VISIBLE
@@ -95,8 +102,14 @@ class GameActivity: AppCompatActivity(), GameView {
     }
 
 
-    override fun onFinishGame(discardCounter1: Int, discardCounter2: Int) {
-        // Make a finish for the moment
+    override fun onFinishGame(result: Result) {
+        //Show activity of results
+        val intent = Intent(this, ResultActivity::class.java).apply {
+            //send data of results
+            putExtra(RESULT, result)
+        }
+
+        startActivity(intent)
         finish()
     }
 
@@ -120,10 +133,12 @@ class GameActivity: AppCompatActivity(), GameView {
         setWinner()
     }
 
+    //Set and update in ui the number of discarded cards and center the layout
     override fun setActionDiscardCountText(numDiscardedCards1: Int, numDiscardedCards2: Int) {
-        //Set and update in ui the number of discarded cards
         tvDiscard1.text = resources.getString(R.string.discarded_cards, numDiscardedCards1)
+        tvDiscard1.gravity = Gravity.CENTER
         tvDiscard2.text = resources.getString(R.string.discarded_cards, numDiscardedCards2)
+        tvDiscard2.gravity = Gravity.CENTER
 
     }
 

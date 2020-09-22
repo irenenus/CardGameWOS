@@ -1,6 +1,7 @@
 package com.example.warofsuits.ui.game
 
 import android.graphics.drawable.Drawable
+import com.example.warofsuits.model.Result
 import com.example.warofsuits.model.Suit
 
 interface GameView {
@@ -15,7 +16,7 @@ interface GameView {
 
     fun onBothLayDownDone(): Boolean
 
-    fun onFinishGame(discardCounter1: Int, discardCounter2: Int)
+    fun onFinishGame(result: Result)
 
 
 }

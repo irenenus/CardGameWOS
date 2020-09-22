@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">War of Suits</string>
 
+    <!--Welcome Activity -->
     <string name="play_button">Play</string>
     <string name="rules_button">Rules</string>
 
-
+    <!--Welcome Popup -->
     <string name="rules_title">RULES</string>
     <string name="rules_body">This game consists on a war of two players that have to lay down their top card of the pile and
         the one with the highest value of the poker card wins the round, keeping both cards into their discard pile.\nFirst
@@ -13,8 +14,9 @@
         Game finishes when both players have played all of their cards.\nThe
         winner will be the player with more cards in their discard pile. \nGood Luck!
     </string>
-    <string name="name_hint">Name</string>
-    <string name="discarded_cards">%d discarded cards</string>
+
+    <!--Game Activity -->
+    <string name="discarded_cards">%d discarded \ncards</string>
     <string name="suits_1">Suits1</string>
     <string name="suits_2">Suits2</string>
     <string name="suits_3">Suits3</string>
@@ -22,7 +24,18 @@
     <string name="tv_player_1">Player1</string>
     <string name="tv_player_2">Player2</string>
     <string name="pile">Pile</string>
-    <string name="player1_winner">Player 1 you win! \nPlease start the next round</string>
-    <string name="player2_winner">Player 2 you win! \nPlease start the next round</string>
+    <string name="player1_winner">Player 1 you win! \nPlease, start the next round</string>
+    <string name="player2_winner">Player 2 you win! \nPlease, start the next round</string>
+
+    <!--Result Activity -->
+    <string name="player1_winner_game">Player 1 wins this time! \nCongratulations</string>
+    <string name="player2_winner_game">Player 2 wins this time! \nCongratulations</string>
+    <string name="no_winner_game">You tie this time! \nTry again!</string>
+    <string name="number_rounds">Rounds played: </string>
+    <string name="number_rounds1">Rounds that Player 1 has won:  </string>
+    <string name="number_rounds2">Rounds that Player 2 has won:  </string>
+    <string name="number_discarded_cards1">Discarded cards of Player 1: </string>
+    <string name="number_discarded_cards2">Discarded cards of Player 2: </string>
+    <string name="replay">Play again</string>
 
 </resources>
