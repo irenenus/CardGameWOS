@@ -6,7 +6,7 @@ import com.example.warofsuits.model.Card
 import com.example.warofsuits.model.Suit
 
 
-class GamePresenterImpl(private val context: Context, private val view: GameView) : GamePresenter {
+class GamePresenterImpl(context: Context, private val view: GameView) : GamePresenter {
 
     private val cardsInteractor = CardsInteractor(context)
 
@@ -20,10 +20,6 @@ class GamePresenterImpl(private val context: Context, private val view: GameView
     private var winnerRoundP1 = true
 
     override fun onCreateGame(){
-        refresh()
-    }
-
-    override fun onRestartGame() {
         refresh()
     }
 
@@ -41,22 +37,21 @@ class GamePresenterImpl(private val context: Context, private val view: GameView
            when {
                //Compare the values
                player1List[round].value > player2List[round].value -> {
-                   round++
                    discardCount1+=2
-                   view.setActionDiscardCountText(discardCount1, discardCount2)
-                   checkFinalRound()
+                   updateVarsAndCheckFinal()
+
                    return true
                }
                player1List[round].value < player2List[round].value -> {
-                   round++
                    discardCount2+=2
-                   view.setActionDiscardCountText(discardCount1, discardCount2)
-                   checkFinalRound()
+                   updateVarsAndCheckFinal()
+
                    return false
                }
-               //if values are equal compare the suit
+
+               //if values are equal compare suits
                else -> {
-                   //create a list only with the id Suits in order of their value
+                   //create a list only with the id Suits sorted by their value (higher to lower)
                    val suitsIdList = mutableListOf<Char>()
                    suitsList.forEach {
                        suitsIdList.add(it.id)
@@ -64,16 +59,14 @@ class GamePresenterImpl(private val context: Context, private val view: GameView
                    //compare which suit valor is higher
                    winnerRoundP1 = suitsIdList.indexOf(player1List[round].suit) < suitsIdList.indexOf(player2List[round].suit)
 
-                   round++
                    if(winnerRoundP1){
                        discardCount1+=2
                    }
                    else {
                        discardCount2+=2
                    }
-                   view.setActionDiscardCountText(discardCount1, discardCount2)
-                   checkFinalRound()
 
+                   updateVarsAndCheckFinal()
                    return winnerRoundP1
 
                }
@@ -82,8 +75,17 @@ class GamePresenterImpl(private val context: Context, private val view: GameView
         return null
     }
 
+    private fun updateVarsAndCheckFinal(){
+        round++
+
+        //update the discard numbers
+        view.setActionDiscardCountText(discardCount1, discardCount2)
+        checkFinalRound()
+    }
+
     private fun checkFinalRound(){
         val totalDiscard = discardCount1 + discardCount2
+
         if(totalDiscard == cardsList.size){
             Log.d("Finish", "The game has finished")
             view.onFinishGame(discardCount1, discardCount2)
@@ -95,6 +97,8 @@ class GamePresenterImpl(private val context: Context, private val view: GameView
         discardCount1 = 0
         discardCount2 = 0
         round = 0
+
+        //update in the ui the discard numbers
         view.setActionDiscardCountText(discardCount1, discardCount2)
 
         updateGameField()

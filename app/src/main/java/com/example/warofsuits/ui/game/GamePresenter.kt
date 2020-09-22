@@ -4,8 +4,6 @@ interface GamePresenter{
 
     fun onCreateGame()
 
-    fun onRestartGame()
-
     fun onLayDownCardPlayer1()
 
     fun onLayDownCardPlayer2()

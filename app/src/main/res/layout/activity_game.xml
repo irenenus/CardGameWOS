@@ -340,6 +340,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
         android:textSize="12sp"
+        android:rotation="180"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
