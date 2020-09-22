@@ -12,11 +12,11 @@ class GamePresenterImpl(context: Context, private val view: GameView) : GamePres
 
     private var discardCount1 = 0
     private var discardCount2 = 0
-    private var round = 0
-    private var cardsList = mutableListOf<Card>()
-    private var player1List = mutableListOf<Card>()
-    private var player2List = mutableListOf<Card>()
-    private var suitsList = mutableListOf<Suit>()
+    var round = 0
+    var cardsList = mutableListOf<Card>()
+    var player1List = mutableListOf<Card>()
+    var player2List = mutableListOf<Card>()
+    var suitsList = mutableListOf<Suit>()
     private var winnerRoundP1 = true
 
     override fun onCreateGame(){
@@ -34,65 +34,65 @@ class GamePresenterImpl(context: Context, private val view: GameView) : GamePres
     override fun getWinner() : Boolean? {
 
         if(view.onBothLayDownDone()){
-           when {
-               //Compare the values
-               player1List[round].value > player2List[round].value -> {
-                   discardCount1+=2
-                   updateVarsAndCheckFinal()
-
-                   return true
-               }
-               player1List[round].value < player2List[round].value -> {
-                   discardCount2+=2
-                   updateVarsAndCheckFinal()
-
-                   return false
-               }
-
-               //if values are equal compare suits
-               else -> {
-                   //create a list only with the id Suits sorted by their value (higher to lower)
-                   val suitsIdList = mutableListOf<Char>()
-                   suitsList.forEach {
-                       suitsIdList.add(it.id)
-                   }
-                   //compare which suit valor is higher
-                   winnerRoundP1 = suitsIdList.indexOf(player1List[round].suit) < suitsIdList.indexOf(player2List[round].suit)
-
-                   if(winnerRoundP1){
-                       discardCount1+=2
-                   }
-                   else {
-                       discardCount2+=2
-                   }
-
-                   updateVarsAndCheckFinal()
-                   return winnerRoundP1
-
-               }
-           }
+            return compareValues(player1List[round], player2List[round], suitsList)
         }
         return null
     }
 
-    private fun updateVarsAndCheckFinal(){
-        round++
+    fun compareValues(card1: Card, card2 : Card, suitsList: MutableList<Suit>): Boolean {
+        when {
+            //Compare the values
+            card1.value > card2.value -> {
+                discardCount1+=2
+                updateVarsAndCheckFinal(discardCount1, discardCount2, cardsList.size)
 
-        //update the discard numbers
-        view.setActionDiscardCountText(discardCount1, discardCount2)
-        checkFinalRound()
-    }
+                return true
+            }
+            card1.value < card2.value -> {
+                discardCount2+=2
+                updateVarsAndCheckFinal(discardCount1, discardCount2, cardsList.size)
 
-    private fun checkFinalRound(){
-        val totalDiscard = discardCount1 + discardCount2
+                return false
+            }
 
-        if(totalDiscard == cardsList.size){
-            Log.d("Finish", "The game has finished")
-            view.onFinishGame(discardCount1, discardCount2)
+            //if values are equal compare suits
+            else -> {
+                //create a list only with the id Suits sorted by their value (higher to lower)
+                val suitsIdList = mutableListOf<Char>()
+                suitsList.forEach {
+                    suitsIdList.add(it.id)
+                }
+                //compare which suit valor is higher
+                winnerRoundP1 = suitsIdList.indexOf(card1.suit) < suitsIdList.indexOf(card2.suit)
+
+                if(winnerRoundP1){
+                    discardCount1+=2
+                }
+                else {
+                    discardCount2+=2
+                }
+
+                updateVarsAndCheckFinal(discardCount1, discardCount2, cardsList.size)
+                return winnerRoundP1
+
+            }
         }
     }
 
-    private fun refresh() {
+    fun updateVarsAndCheckFinal(count1: Int, count2: Int, maxCards : Int){
+        round++
+
+        //update the discard numbers
+        view.setActionDiscardCountText(count1, count2)
+        val totalDiscard = count1 + count2
+
+        if(totalDiscard == maxCards){
+            Log.d("Finish", "The game has finished")
+            view.onFinishGame(count1, count2)
+        }
+    }
+
+    fun refresh() {
         //reset counter of discarded cards
         discardCount1 = 0
         discardCount2 = 0

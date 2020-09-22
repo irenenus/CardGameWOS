@@ -6,12 +6,12 @@
 
 
     <string name="rules_title">RULES</string>
-    <string name="rules_body">This game consists on a war of two players that have to lay down their top card and
-        the one with the highest value of the poker card wins the round, putting both cards into their discard pile.\nFirst
+    <string name="rules_body">This game consists on a war of two players that have to lay down their top card of the pile and
+        the one with the highest value of the poker card wins the round, keeping both cards into their discard pile.\nFirst
         of all it will be compared the value and then the suit that will be established at the start, randomly by the app.
         The range of the values will be: 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K and A.\nThe
         Game finishes when both players have played all of their cards.\nThe
-        winner will be the player with more cards in their discard pile.
+        winner will be the player with more cards in their discard pile. \nGood Luck!
     </string>
     <string name="name_hint">Name</string>
     <string name="discarded_cards">%d discarded cards</string>
@@ -22,7 +22,7 @@
     <string name="tv_player_1">Player1</string>
     <string name="tv_player_2">Player2</string>
     <string name="pile">Pile</string>
-    <string name="player1_winner">Player 1 wins this round</string>
-    <string name="player2_winner">Player 2 wins this round</string>
+    <string name="player1_winner">Player 1 you win! \nPlease start the next round</string>
+    <string name="player2_winner">Player 2 you win! \nPlease start the next round</string>
 
 </resources>

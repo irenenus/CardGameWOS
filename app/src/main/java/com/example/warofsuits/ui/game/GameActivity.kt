@@ -29,11 +29,14 @@ class GameActivity: AppCompatActivity(), GameView {
 
     private fun onListeners(){
         btnReplay1.setOnClickListener {
-            onStartGame()
+            //Try onStartGame but the layout not responds well when user clicks replay when they lay down cards
+            recreate()
         }
 
         btnReplay2.setOnClickListener {
-            onStartGame()
+            //Try onStartGame but the layout not responds well when user clicks replay when they lay down cards
+
+            recreate()
         }
 
         cvPile1.setOnClickListener {
@@ -49,58 +52,48 @@ class GameActivity: AppCompatActivity(), GameView {
     }
 
     private fun onStartGame(){
-        cvLayDownCard1.visibility = View.INVISIBLE
-        cvLayDownCard2.visibility = View.INVISIBLE
+        presenter.onCreateGame()
+
+        /* I try this instead of recreate but there was a lot of layout problems:
+
+        imLayDownCard1.visibility = View.INVISIBLE
+        imLayDownCard2.visibility = View.INVISIBLE
         ivDiscard1.visibility = View.INVISIBLE
         ivDiscard2.visibility = View.INVISIBLE
         cvPile1.isEnabled = true
-        cvPile2.isEnabled = true
+        cvPile2.isEnabled = true*/
 
-        presenter.onCreateGame()
     }
 
-    private fun setWinner(){
-        when(presenter.getWinner()){
-            true -> {
-                tvWinner1.visibility = View.VISIBLE
-                tvWinner2.visibility = View.VISIBLE
-                tvWinner1.text = getString(R.string.player1_winner)
-                tvWinner2.text = getString(R.string.player1_winner)
+    private fun setWinner() {
+        when (presenter.getWinner()) {
+            true -> showWinner(getString(R.string.player1_winner), ivDiscard1)
 
-                Handler().postDelayed(
-                    {
-                        tvWinner1.visibility = View.GONE
-                        tvWinner2.visibility = View.GONE
-                        cvLayDownCard1.visibility = View.GONE
-                        cvLayDownCard2.visibility = View.GONE
-                        ivDiscard1.visibility = View.VISIBLE
-                        cvPile1.isEnabled = true
-                        cvPile2.isEnabled = true
-                    },
-                    3000
-                )
-            }
-            false -> {
-
-                tvWinner1.visibility = View.VISIBLE
-                tvWinner2.visibility = View.VISIBLE
-                tvWinner1.text = getString(R.string.player2_winner)
-                tvWinner2.text = getString(R.string.player2_winner)
-
-                Handler().postDelayed(
-                    {
-                        tvWinner1.visibility = View.GONE
-                        tvWinner2.visibility = View.GONE
-                        cvLayDownCard1.visibility = View.GONE
-                        cvLayDownCard2.visibility = View.GONE
-                        cvPile1.isEnabled = true
-                        cvPile2.isEnabled = true
-                        ivDiscard2.visibility = View.VISIBLE
-                    },
-                    3000
-                )            }
+            false -> showWinner(getString(R.string.player2_winner), ivDiscard2)
         }
     }
+
+
+    private fun showWinner(message: String, view: View){
+        tvWinner1.visibility = View.VISIBLE
+        tvWinner2.visibility = View.VISIBLE
+        tvWinner1.text = message
+        tvWinner2.text = message
+
+        Handler().postDelayed(
+            {
+                tvWinner1.visibility = View.GONE
+                tvWinner2.visibility = View.GONE
+                imLayDownCard1.visibility = View.GONE
+                imLayDownCard2.visibility = View.GONE
+                view.visibility = View.VISIBLE
+                cvPile1.isEnabled = true
+                cvPile2.isEnabled = true
+            },
+            3000
+        )
+    }
+
 
     override fun onFinishGame(discardCounter1: Int, discardCounter2: Int) {
         // Make a finish for the moment
@@ -108,12 +101,12 @@ class GameActivity: AppCompatActivity(), GameView {
     }
 
     override fun onBothLayDownDone(): Boolean {
-        return cvLayDownCard1.isVisible && cvLayDownCard2.isVisible
+        return imLayDownCard1.isVisible && imLayDownCard2.isVisible
     }
 
     override fun onLayDownCardPlayer1(drawableLayDownCardPlayer1: Drawable) {
         //Show cards of the pile of Player1
-        cvLayDownCard1.visibility = View.VISIBLE
+        imLayDownCard1.visibility = View.VISIBLE
         imLayDownCard1.setImageDrawable(drawableLayDownCardPlayer1)
 
         setWinner()
@@ -121,7 +114,7 @@ class GameActivity: AppCompatActivity(), GameView {
 
     override fun onLayDownCardPlayer2(drawableLayDownCardPlayer2: Drawable) {
         //Show cards of the pile of Player1
-        cvLayDownCard2.visibility = View.VISIBLE
+        imLayDownCard2.visibility = View.VISIBLE
         imLayDownCard2.setImageDrawable(drawableLayDownCardPlayer2)
 
         setWinner()
