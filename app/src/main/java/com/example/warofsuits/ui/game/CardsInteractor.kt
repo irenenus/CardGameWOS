@@ -8,11 +8,9 @@ import com.example.warofsuits.model.Suit
 
 class CardsInteractor(val context: Context) {
 
-    private var cardsList = mutableListOf<Card>()
-
 
     fun createCards() : MutableList<Card> {
-
+        val cardsList = mutableListOf<Card>()
 
         //Fill the cards List getting from the integer array the drawables depending on the suits
         val hArray = context.resources.obtainTypedArray(R.array.integer_array_h)
@@ -56,4 +54,5 @@ class CardsInteractor(val context: Context) {
             Suit('H', ContextCompat.getDrawable(context, R.drawable.ic_heart)!!))
 
     }
+
 }

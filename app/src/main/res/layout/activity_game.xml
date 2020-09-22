@@ -169,8 +169,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPile1"
-            android:layout_width="131dp"
-            android:layout_height="193dp"
+            android:layout_width="111dp"
+            android:layout_height="173dp"
+            android:layout_gravity="end"
             app:cardCornerRadius="5dp">
 
             <ImageView
@@ -201,8 +202,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvDiscard1"
-            android:layout_width="131dp"
-            android:layout_height="193dp"
+            android:layout_width="111dp"
+            android:layout_height="173dp"
+            android:layout_gravity="start"
             app:cardCornerRadius="5dp">
 
             <ImageView
@@ -228,8 +230,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvDiscard2"
-            android:layout_width="131dp"
-            android:layout_height="193dp"
+            android:layout_width="111dp"
+            android:layout_height="173dp"
+            android:layout_gravity="end"
             app:cardCornerRadius="5dp">
 
             <ImageView
@@ -263,9 +266,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPile2"
-            android:layout_width="131dp"
-            android:layout_height="193dp"
-            android:background="@color/transparent"
+            android:layout_width="111dp"
+            android:layout_height="173dp"
+            android:layout_gravity="start"
             app:cardCornerRadius="5dp">
 
             <ImageView
@@ -288,6 +291,69 @@
 
     </LinearLayout>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLayDownCard1"
+        android:layout_width="133dp"
+        android:layout_height="193dp"
+        android:background="@color/transparent"
+        app:cardCornerRadius="5dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp">
 
+    <ImageView
+        android:id="@+id/imLayDownCard1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/pile"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLayDownCard2"
+        android:layout_width="133dp"
+        android:layout_height="193dp"
+        android:background="@color/transparent"
+        app:cardCornerRadius="5dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp">
+
+        <ImageView
+            android:id="@+id/imLayDownCard2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/pile"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvWinner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tvWinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="12dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,8 +15,6 @@ const val WIDTH = 900
 const val HEIGHT = 1900
 
  fun Activity.onButtonShowPopupWindowClick(view: View) {
-
-
     // inflate the layout of the popup window
     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     val popupView = inflater.inflate(R.layout.popup_rules_window, RelativeLayout(view.context), false)

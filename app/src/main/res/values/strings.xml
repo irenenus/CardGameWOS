@@ -22,5 +22,7 @@
     <string name="tv_player_1">Player1</string>
     <string name="tv_player_2">Player2</string>
     <string name="pile">Pile</string>
+    <string name="player1_winner">Player 1 wins this round</string>
+    <string name="player2_winner">Player 2 wins this round</string>
 
 </resources>
